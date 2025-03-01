@@ -24,7 +24,7 @@ export default function BookAnalysis({ content, isOpen, }: BookAnalysisProps) {
 
   useEffect(() => {
     if (isOpen && !hasRequested && !isLoading) {
-      const prompt = `Analyze this book excerpt and provide a brief sentiment analysis. Focus on the tone, themes, and emotional content. Keep it concise. Here's the text:\n\n${content.substring(0, 2000)}...`;
+      const prompt = `Analyze this book excerpt and provide a brief sentiment analysis. Focus on the tone, themes, and emotional content. Keep it concise. Here's the text:\n\n${content.substring(0, 4000)}...`;
       sendMessage(prompt);
       setHasRequested(true);
     }
