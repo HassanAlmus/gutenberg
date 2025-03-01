@@ -1,6 +1,6 @@
 import { parse } from 'node-html-parser';
 import BookView from '@/components/bookView';
-import UpdateBookHistory from '@/components/updateCookie';
+import UpdateBookHistory from '@/components/updateCookie'
 
 interface Metadata {
   title: string | null;
@@ -15,20 +15,12 @@ interface Metadata {
   subjects: string[];
 }
 
-// Use this interface instead of PageProps
-interface PageParams {
-  params: {
-    id: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-export default async function Page({ params }: PageParams) {
+export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
   
-  // Rest of your code remains the same
   const content_response = await fetch(`https://www.gutenberg.org/files/${id}/${id}-0.txt`);
   const content = await content_response.text();
+  
   const metadata_response = await fetch(`https://www.gutenberg.org/ebooks/${id}`);
   const html = await metadata_response.text();
   const root = parse(html);
