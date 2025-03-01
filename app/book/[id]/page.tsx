@@ -14,15 +14,9 @@ interface Metadata {
   copyright: string | null;
   subjects: string[];
 }
-interface PageProps {
-  params: {
-    id: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-}
 
-export default async function Page({ params }: PageProps) {
-  const { id } = params;
+export default async function Page({ params }:{params: Promise<{id: string}>}) {
+  const { id } = await params;
   
   const content_response = await fetch(`https://www.gutenberg.org/files/${id}/${id}-0.txt`);
   const content = await content_response.text();
