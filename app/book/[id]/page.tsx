@@ -14,8 +14,13 @@ interface Metadata {
   copyright: string | null;
   subjects: string[];
 }
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: PageProps) {
   const { id } = params;
   
   const content_response = await fetch(`https://www.gutenberg.org/files/${id}/${id}-0.txt`);
