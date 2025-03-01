@@ -18,6 +18,7 @@ interface PageProps {
   params: {
     id: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export default async function Page({ params }: PageProps) {
