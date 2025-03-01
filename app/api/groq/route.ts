@@ -30,11 +30,10 @@ export async function POST(request: NextRequest) {
     
     // Return the response
     return NextResponse.json(chatCompletion);
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  } catch (error: any) {
+  } catch (error) {
     console.error('Groq API error:', error);
     return NextResponse.json(
-      { error: error.message || "Something went wrong" },
+      { error: (error as Error).message || "Something went wrong" },
       { status: 500 }
     );
   }

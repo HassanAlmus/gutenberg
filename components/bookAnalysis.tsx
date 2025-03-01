@@ -2,16 +2,6 @@
 
 import { useGroq } from "@/components/ui/useGroq";
 import { useEffect, useState } from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
 
 interface BookAnalysisProps {
   content: string;

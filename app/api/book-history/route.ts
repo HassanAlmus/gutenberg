@@ -9,19 +9,6 @@ interface BookHistoryItem {
   visitedAt: string;
 }
 
-interface Metadata {
-  title: string | null;
-  alternativeTitle: string | null;
-  author: string | null;
-  editor: string | null;
-  illustrator: string | null;
-  language: string | null;
-  releaseDate: string | null;
-  downloads: string | null;
-  copyright: string | null;
-  subjects: string[];
-}
-
 export async function POST(request: NextRequest) {
   const { id, metadata } = await request.json();
   
