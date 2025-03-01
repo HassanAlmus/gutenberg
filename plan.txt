@@ -1,0 +1,3 @@
+home page: 
+-input book id (takes u to book page)
+-show past searches
